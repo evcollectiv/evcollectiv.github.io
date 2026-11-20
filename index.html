@@ -61,9 +61,21 @@ h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
 }
 .app:hover { border-color: var(--muted); }
 .app:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.app img { width: 58px; height: 58px; border-radius: 13px; flex: none; }
+.app img, .app .glyph { width: 58px; height: 58px; border-radius: 13px; flex: none; }
+.app .glyph {
+  display: grid;
+  place-items: center;
+  background: var(--c);
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
 .app .name { font-weight: 700; font-size: 17px; }
 .app .what { color: var(--muted); font-size: 14px; }
+.group { display: flex; flex-direction: column; gap: 12px; }
+.group h2 { margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+.group .note { margin: -6px 0 0; color: var(--muted); font-size: 14px; }
 .how { border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 15px; }
 .how h2 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
 .how p { margin: 0; max-width: 60ch; }
@@ -76,15 +88,67 @@ h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
     <p class="sub">My apps</p>
   </header>
 
-  <nav class="apps" aria-label="Apps">
-    <a class="app" href="dayline/">
-      <img src="dayline/apple-touch-icon.png" alt="">
-      <div>
-        <div class="name">Dayline</div>
-        <div class="what">Calendar, schedule and reminders</div>
-      </div>
-    </a>
-  </nav>
+  <section class="group" aria-labelledby="h-here">
+    <h2 id="h-here">On this site</h2>
+    <nav class="apps" aria-label="Apps on this site">
+      <a class="app" href="dayline/">
+        <img src="dayline/apple-touch-icon.png" alt="">
+        <div>
+          <div class="name">Dayline</div>
+          <div class="what">Calendar, schedule and reminders</div>
+        </div>
+      </a>
+    </nav>
+  </section>
+
+  <section class="group" aria-labelledby="h-claude">
+    <h2 id="h-claude">In Claude</h2>
+    <p class="note">These open in Claude. Only you can open them while signed in.</p>
+    <nav class="apps" aria-label="Apps in Claude">
+      <a class="app" href="https://claude.ai/artifact/HvZAiGjLw2m2UT8P2Ueji5" target="_blank" rel="noopener">
+        <span class="glyph" style="--c:#7d5bd0" aria-hidden="true">S</span>
+        <div>
+          <div class="name">Spiritual Notebook</div>
+          <div class="what">Meetings, study, Bible reading and notes</div>
+        </div>
+      </a>
+      <a class="app" href="https://claude.ai/artifact/Cak1WbrXUZL8r6MdZ3q53S" target="_blank" rel="noopener">
+        <span class="glyph" style="--c:#2f7fd8" aria-hidden="true">G</span>
+        <div>
+          <div class="name">Gleanings</div>
+          <div class="what">Summaries and key points from talks</div>
+        </div>
+      </a>
+      <a class="app" href="https://claude.ai/artifact/J4zHTCRKkSvQK7Ct9Dqs3H" target="_blank" rel="noopener">
+        <span class="glyph" style="--c:#d9822b" aria-hidden="true">W</span>
+        <div>
+          <div class="name">Wisdom Bursts</div>
+          <div class="what">Quick-learning swipe cards</div>
+        </div>
+      </a>
+      <a class="app" href="https://claude.ai/artifact/TUq2PuM2MKpg1rL2CyFwNE" target="_blank" rel="noopener">
+        <span class="glyph" style="--c:#2f9a62" aria-hidden="true">P</span>
+        <div>
+          <div class="name">Pantry</div>
+          <div class="what">Meals, meal prep and grocery lists</div>
+        </div>
+      </a>
+      <a class="app" href="https://claude.ai/artifact/UvQGVmsrdnT2i2duKM7AoG" target="_blank" rel="noopener">
+        <span class="glyph" style="--c:#16785a" aria-hidden="true">✓</span>
+        <div>
+          <div class="name">To-Do's</div>
+          <div class="what">Simple tick-off list</div>
+        </div>
+      </a>
+      <a class="app" href="https://claude.ai/artifact/V3ToRhGhpMAuCQM51eGXaL" target="_blank" rel="noopener">
+        <span class="glyph" style="--c:#8a6d4b" aria-hidden="true">D</span>
+        <div>
+          <div class="name">Daybook</div>
+          <div class="what">Open in Claude</div>
+        </div>
+      </a>
+    </nav>
+  </section>
 
   <section class="how">
     <h2>Use it like an app</h2>
