@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>evcollectiv</title>
+<meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0c0c0e" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" href="dayline/icon-192.png">
+<style>
+/* Layout: a single column app launcher — name, app tiles, then a short how-to */
+:root {
+  --bg: #f4f4f6;
+  --tile: #ffffff;
+  --fg: #1c1c1e;
+  --muted: #6e6e75;
+  --line: #e2e2e7;
+  --accent: #ff3b30;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0c0c0e; --tile: #1c1c1e; --fg: #f2f2f7; --muted: #95959c; --line: #2c2c30; --accent: #ff453a; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.45;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-block: 40px 56px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+h1 { margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
+.sub { margin: 4px 0 0; color: var(--muted); }
+.apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.app {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: var(--tile);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  color: inherit;
+  text-decoration: none;
+  min-width: 0;
+}
+.app:hover { border-color: var(--muted); }
+.app:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.app img { width: 58px; height: 58px; border-radius: 13px; flex: none; }
+.app .name { font-weight: 700; font-size: 17px; }
+.app .what { color: var(--muted); font-size: 14px; }
+.how { border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 15px; }
+.how h2 { margin: 0 0 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+.how p { margin: 0; max-width: 60ch; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>evcollectiv</h1>
+    <p class="sub">My apps</p>
+  </header>
+
+  <nav class="apps" aria-label="Apps">
+    <a class="app" href="dayline/">
+      <img src="dayline/apple-touch-icon.png" alt="">
+      <div>
+        <div class="name">Dayline</div>
+        <div class="what">Calendar, schedule and reminders</div>
+      </div>
+    </a>
+  </nav>
+
+  <section class="how">
+    <h2>Use it like an app</h2>
+    <p>Open an app in Safari, tap the Share button, then choose Add to Home Screen. It opens full screen and keeps working offline. Your entries are saved on that device.</p>
+  </section>
+</main>
+</body>
+</html>
